@@ -34,10 +34,10 @@ Haittapuolet:
 - Viive "kylmän" funktion suorituksessa.
 - Testauksen toteuttaminen FaaS-alustan päällä toimivalle sovellukselle voi olla haastavampaa.
 
-[Wikipedia: Serverless computing](https://en.wikipedia.org/wiki/Serverless_computing)
-[Wikipedia: FaaS](https://en.wikipedia.org/wiki/Function_as_a_service)
-[Dzone: The Pros and Cons of AWS Lambda](https://dzone.com/articles/the-pros-and-cons-of-aws-lambda)
-[Quora: What is the advantages and disadvantages of using AWS Lambda with and without Serverless?](https://www.quora.com/What-is-the-advantages-and-disadvantages-of-using-AWS-Lambda-with-and-without-Serverless)
+[Wikipedia: Serverless computing](https://en.wikipedia.org/wiki/Serverless_computing)\
+[Wikipedia: FaaS](https://en.wikipedia.org/wiki/Function_as_a_service)\
+[Dzone: The Pros and Cons of AWS Lambda](https://dzone.com/articles/the-pros-and-cons-of-aws-lambda)\
+[Quora: What is the advantages and disadvantages of using AWS Lambda with and without Serverless?](https://www.quora.com/What-is-the-advantages-and-disadvantages-of-using-AWS-Lambda-with-and-without-Serverless)\
 [DevOps.com: Should You Go ‘Serverless’? The Pros and Cons](https://devops.com/go-serverless-pros-cons/)
 
 ## AWS Lambda
