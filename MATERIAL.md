@@ -82,9 +82,9 @@ exports.handler = function(event, context, callback) {
 };
 ```
 
-[AWS: Lambda](https://aws.amazon.com/lambda/)
-[Wikipedia: AWS Lambda](https://en.wikipedia.org/wiki/AWS_Lambda)
-[AWS: Lambda Function Handler in Node.js](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html)
+[AWS: Lambda](https://aws.amazon.com/lambda/)\
+[Wikipedia: AWS Lambda](https://en.wikipedia.org/wiki/AWS_Lambda)\
+[AWS: Lambda Function Handler in Node.js](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html)\
 [AWS: Serverless Architectures
 with AWS Lambda](https://d1.awsstatic.com/whitepapers/serverless-architectures-with-aws-lambda.pdf)
 
@@ -116,20 +116,18 @@ functions:
           method: get
 ```
 
-[Serverless Framework](https://serverless.com/framework/)
-[Wikipedia: Serverless Framework](https://en.wikipedia.org/wiki/Serverless_Framework)
+[Serverless Framework](https://serverless.com/framework/)\
+[Wikipedia: Serverless Framework](https://en.wikipedia.org/wiki/Serverless_Framework)\
 [Wikipedia: Infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code)
 
 ## Tehtävät
 
-1. Tee ensin tämä tutoriaali tutustuaksesi Serverless-kehitykseen AWS-alustalla:
-[AWS: Build a Serverless Web Application](https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/)
-
+1. Tee ensin tämä tutoriaali tutustuaksesi Serverless-kehitykseen AWS-alustalla:\
+[AWS: Build a Serverless Web Application](https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/)\
 Ota kuvakaappaus lopputuloksesta, kun testaat sovellusta.
 
-2. Seuraavaksi toteuta Serverless Frameworkilla tutoriaalin mukainen REST-API:
-[Serverless Express REST-API tutorial](https://serverless.com/blog/serverless-express-rest-api/)
-
+2. Seuraavaksi toteuta Serverless Frameworkilla tutoriaalin mukainen REST-API:\
+[Serverless Express REST-API tutorial](https://serverless.com/blog/serverless-express-rest-api/)\
 Ota kuvakaappaus testatusta GET-reitistä, kun olet ensin luonut POST-reitillä käyttäjän.
 
 3. Lopuksi toteuta demo-sovellukseen TODO-listan merkinnän päivittäminen tehdyksi ja sen poistaminen.
