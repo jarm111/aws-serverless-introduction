@@ -8,6 +8,7 @@ Serverless-arkkitehtuurissa sovelluslogiikka suoritetaan ympäristössä ilman k
 
 Serverless-arkkitehtuuri eroaa Platform as a Service -mallista siinä, että se skaalautuu automaattisesti kysynnän mukaan, eikä kuluta resursseja kun palveluun ei tule kutsuja, ja se myös abstraktoi pois käyttöjärjestelmä-tason kehittäjän näkökulmasta.
 
+Esimerkki AWS serverless-arkkitehtuurista:\
 ![Esimerkki AWS serverless-arkkitehtuurista](/images/example-aws-serverless-architecture.png "Esimerkki AWS serverless-arkkitehtuurista")
 
 Serverless-arkkitehtuuri rakentuu yleensä seuraavien kahden palvelumallin päälle:
@@ -52,6 +53,7 @@ Lambda-funktioita voi hyödyntää monenlaisiin tarkoituksiin, esimerkkejä käy
 
 Jokainen Lambda-funktion instanssi pyörii omassa eristetyssä ympäristössään ja funktioon liitetty tapahtuma aktivoi funktion suorituksen. Palveluntarjoaja vastaa instanssien käynnistymisestä ja sammuttamisesta. Jos instanssia ei ole käynnissä, tapahtuu ns. "cold start" eli instanssi pyörähtää käyntiin, mistä aiheutuu millisekunneissa laskettava viive. Jos kutsuja tulee paljon, uusia instansseja luodaan dynaamisesti vastauksena kysyntään. Kun kutsuja ei tule, niin tietyn ajan kuluttua instanssi poistuu valmiudesta kuluttamasta resursseja. Palvelun käytön laskutus perustuu funktioiden suorituspyyntöjen määrään (requests) ja suoritusaikaan suhteessa muistin käyttöön (duration in GB-seconds).
 
+Lämpimän ja kylmän funktio-kontin invokaatio:\
 ![Lämpimän ja kylmän funktio-kontin invokaatio](/images/aws-lambda-invocations.png "Lämpimän ja kylmän funktio-kontin invokaatio")
 
 ### Lambda-funktion luominen
