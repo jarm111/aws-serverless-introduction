@@ -6,7 +6,18 @@ const aws = require('aws-sdk');
 const uuid = require('uuid/v1');
 
 const todosTable = process.env.TODOS_TABLE;
-const dynamoDb = new aws.DynamoDB.DocumentClient();
+
+const IS_OFFLINE = process.env.IS_OFFLINE;
+let dynamoDb;
+if (IS_OFFLINE === 'true') {
+  dynamoDb = new aws.DynamoDB.DocumentClient({
+    region: 'localhost',
+    endpoint: 'http://localhost:8000'
+  });
+  console.log(dynamoDb);
+} else {
+  dynamoDb = new aws.DynamoDB.DocumentClient();
+}
 
 app.use(bodyParser.json({ strict: false }));
 
