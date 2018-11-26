@@ -40,8 +40,8 @@ app.get('/todos/:todoId', function(req, res) {
       res.status(400).json({ error: 'Could not get todo' });
     }
     if (result.Item) {
-      const { todoId, description } = result.Item;
-      res.json({ todoId, description });
+      const { todoId, description, isDone } = result.Item;
+      res.json({ todoId, description, isDone });
     } else {
       res.status(404).json({ error: 'Todo not found' });
     }
@@ -56,12 +56,14 @@ app.post('/todos', function(req, res) {
   }
 
   const todoId = uuid();
+  const isDone = false;
 
   const params = {
     TableName: todosTable,
     Item: {
-      todoId: todoId,
-      description: description
+      todoId,
+      description,
+      isDone
     }
   };
 
@@ -70,7 +72,7 @@ app.post('/todos', function(req, res) {
       console.log(error);
       res.status(400).json({ error: 'Could not create todo' });
     }
-    res.json({ todoId, description });
+    res.json({ todoId, description, isDone });
   });
 });
 
