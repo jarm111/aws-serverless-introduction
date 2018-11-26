@@ -3,6 +3,11 @@
 # @name getRoot
 GET {{baseUrl}}
 
+###
+
+# @name getAllTodos
+GET {{baseUrl}}/todos
+
 ### 
 
 # @name createNewTodo
@@ -19,3 +24,12 @@ Content-Type: application/json
 
 # @name getTodo
 GET {{baseUrl}}/todos/{{todoId}}
+
+###
+
+# @name updateTodo
+PUT {{baseUrl}}/todos/{{todoId}}
+
+{
+  "isDone": true
+}

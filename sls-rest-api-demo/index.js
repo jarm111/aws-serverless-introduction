@@ -25,6 +25,29 @@ app.get('/', function(req, res) {
   res.send('Hello, this is Serverless REST-API demo!');
 });
 
+app.get('/todos', function(req, res) {
+  const params = {
+    TableName: todosTable
+  };
+
+  dynamoDb.scan(params, (error, result) => {
+    if (error) {
+      console.log(error);
+      res.status(400).json({ error: 'Could not get todo' });
+    }
+    if (result.Items) {
+      const todos = result.Items.map(({ todoId, description, isDone }) => ({
+        todoId,
+        description,
+        isDone
+      }));
+      res.json(todos);
+    } else {
+      res.status(404).json({ error: 'Todos not found' });
+    }
+  });
+});
+
 // Get Todo endpoint
 app.get('/todos/:todoId', function(req, res) {
   const params = {
@@ -73,6 +96,41 @@ app.post('/todos', function(req, res) {
       res.status(400).json({ error: 'Could not create todo' });
     }
     res.json({ todoId, description, isDone });
+  });
+});
+
+app.put('/todos/:todoId', function(req, res) {
+  const { isDone } = req.body;
+  if (typeof isDone !== 'boolean') {
+    res.status(400).json({ error: '"isDone" must be a boolean' });
+  }
+
+  const params = {
+    TableName: todosTable,
+    Key: {
+      todoId: req.params.todoId
+    },
+    ConditionExpression: 'attribute_exists(todoId)',
+    UpdateExpression: 'set isDone = :isD',
+    ExpressionAttributeValues: {
+      ':isD': isDone
+    },
+    ReturnValues: 'UPDATED_NEW'
+  };
+
+  dynamoDb.update(params, (error, data) => {
+    if (error) {
+      console.log(error);
+      res
+        .status(400)
+        .send(
+          'Unable to update item. Error JSON:' + JSON.stringify(error, null, 2)
+        );
+    } else {
+      res
+        .status(200)
+        .send('UpdateItem succeeded:' + JSON.stringify(data, null, 2));
+    }
   });
 });
 
