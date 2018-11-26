@@ -22,7 +22,7 @@ if (IS_OFFLINE === 'true') {
 app.use(bodyParser.json({ strict: false }));
 
 app.get('/', function(req, res) {
-  res.send('Hello World!');
+  res.send('Hello, this is Serverless REST-API demo!');
 });
 
 // Get Todo endpoint
