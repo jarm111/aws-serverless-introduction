@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 const aws = require('aws-sdk');
+const uuid = require('uuid/v1');
 
 const todosTable = process.env.TODOS_TABLE;
 const dynamoDb = new aws.DynamoDB.DocumentClient();
@@ -38,12 +39,12 @@ app.get('/todos/:todoId', function(req, res) {
 
 // Create Todo endpoint
 app.post('/todos', function(req, res) {
-  const { todoId, description } = req.body;
-  if (typeof todoId !== 'string') {
-    res.status(400).json({ error: '"todoId" must be a string' });
-  } else if (typeof description !== 'string') {
+  const { description } = req.body;
+  if (typeof description !== 'string') {
     res.status(400).json({ error: '"description" must be a string' });
   }
+
+  const todoId = uuid();
 
   const params = {
     TableName: todosTable,
