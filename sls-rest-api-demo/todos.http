@@ -33,3 +33,8 @@ PUT {{baseUrl}}/todos/{{todoId}}
 {
   "isDone": true
 }
+
+###
+
+# @name deleteTodo
+DELETE {{baseUrl}}/todos/{{todoId}}

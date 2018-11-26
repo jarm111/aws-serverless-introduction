@@ -134,4 +134,29 @@ app.put('/todos/:todoId', function(req, res) {
   });
 });
 
+app.delete('/todos/:todoId', function(req, res) {
+  const params = {
+    TableName: todosTable,
+    Key: {
+      todoId: req.params.todoId
+    },
+    ConditionExpression: 'attribute_exists(todoId)'
+  };
+
+  dynamoDb.delete(params, (error, data) => {
+    if (error) {
+      console.log(error);
+      res
+        .status(400)
+        .send(
+          'Unable to delete item. Error JSON:' + JSON.stringify(error, null, 2)
+        );
+    } else {
+      res
+        .status(200)
+        .send('DeleteItem succeeded:' + JSON.stringify(data, null, 2));
+    }
+  });
+});
+
 module.exports.handler = serverless(app);
