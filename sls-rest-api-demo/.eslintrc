@@ -1,0 +1,10 @@
+{
+  "env": {
+    "node": true
+  },
+  "extends": ["prettier"],
+  "parserOptions": { "ecmaVersion": 6 },
+  "rules": {
+    "curly": ["error", "multi-line"]
+  }
+}
