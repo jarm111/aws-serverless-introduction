@@ -2,9 +2,13 @@ service: sls-rest-api-demo
 
 custom:
   tableName: 'todos-table-${self:provider.stage}'
+  dynamodb:
+    start:
+      migrate: true
 
 plugins:
-  - serverless-offline
+  - serverless-dynamodb-local
+  - serverless-offline #serverless-offline needs to be last in the list
 
 provider:
   name: aws
