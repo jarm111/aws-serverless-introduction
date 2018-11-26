@@ -1,0 +1,21 @@
+# REST Client - Todo routes
+
+# @name getRoot
+GET {{baseUrl}}
+
+### 
+
+# @name createNewTodo
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "description": "Mow the lawn"
+}
+
+###
+
+@todoId = {{createNewTodo.response.body.$.todoId}}
+
+# @name getTodo
+GET {{baseUrl}}/todos/{{todoId}}
