@@ -48,7 +48,7 @@ class App extends Component {
         <Row className="mt-5 mb-5">
           <Col>
             <h1>Todos React Demo</h1>
-            <p>Todos react demo client for Serverless Rest API demo</p>
+            <p>React client app for Serverless Rest API demo</p>
           </Col>
         </Row>
         <Row className="mb-5">
