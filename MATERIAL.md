@@ -58,7 +58,7 @@ Lämpimän ja kylmän funktio-kontin invokaatio:\
 
 ### Lambda-funktion luominen
 
-Lambda-funktioita voi kehittää AWS Lambda konsolissa tai koodin ja sen tarvitsemat kirjastot voi pakata zip-tiedostoon ja lähettää sen Lambda konsoliin AWS CLI-sovellusta käyttäen. Lambda-funktion koodi on tilatonta, mutta se voi käsitellä tilallista tietoa, joka on tallennettuna muuhun web-palveluun. Lambda-funktio voi kutsua kirjastoja ja se voi luoda säikeitä ja prosesseja. Funktiolle voi asettaa yhden tai useamman tapahtumalähteen, joka aktivoi sen suorituksen. Funktiolle pitää asettaa aikakatkaisun 1 sekunnin and 15 minuutin väliltä ja sille voi asettaa muistikapasiteetin 128 MB – 3 GB väliltä, mikä määrittää myös suhteessa sille allokoitavan prosessoritehon.
+Lambda-funktioita voi kehittää AWS Lambda-konsolissa tai koodin ja sen tarvitsemat kirjastot voi pakata zip-tiedostoon ja lähettää sen Lambda-konsoliin AWS CLI-sovellusta käyttäen. Lambda-funktion koodi on tilatonta, mutta se voi käsitellä tilallista tietoa, joka on tallennettuna muuhun web-palveluun. Lambda-funktio voi kutsua kirjastoja ja se voi luoda säikeitä ja prosesseja. Funktiolle voi asettaa yhden tai useamman tapahtumalähteen, joka aktivoi sen suorituksen. Funktiolle pitää asettaa aikakatkaisun 1 sekunnin and 15 minuutin väliltä ja sille voi asettaa muistikapasiteetin 128 MB – 3 GB väliltä, mikä määrittää myös suhteessa sille allokoitavan prosessoritehon.
 
 Node.js Lambda-käsittelijäfunktion malli:
 
