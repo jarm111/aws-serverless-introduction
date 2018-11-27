@@ -17,7 +17,7 @@ class AddTodoForm extends Component {
   render() {
     return (
       <Form inline>
-        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+        <FormGroup className="w-100">
           <Label for="description" className="mr-sm-2">
             Description
           </Label>
@@ -27,11 +27,12 @@ class AddTodoForm extends Component {
             id="description"
             onChange={this.handleInputChange}
             value={this.state.value}
+            className="w-50"
           />
+          <Button onClick={() => this.props.onSubmit(this.state.value)}>
+            Submit
+          </Button>
         </FormGroup>
-        <Button onClick={() => this.props.onSubmit(this.state.value)}>
-          Submit
-        </Button>
       </Form>
     );
   }

@@ -53,7 +53,7 @@ class App extends Component {
         </Row>
         <Row className="mb-5">
           <Col>
-            <h5>Add new todo:</h5>
+            <h5>Add new Todo:</h5>
             <AddTodoForm onSubmit={this.handleSubmit} />
           </Col>
         </Row>
