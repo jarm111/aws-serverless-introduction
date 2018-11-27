@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Todos React Demo",
+  "name": "React demo client for Serverless Rest API demo",
   "icons": [
     {
       "src": "favicon.ico",
