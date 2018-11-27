@@ -27,7 +27,7 @@ class App extends Component {
   setTodosState() {
     fetchTodos()
       .then(res => res.json())
-      .then(res => this.setState(() => ({ todos: res })));
+      .then(res => this.setState({ todos: res }));
   }
 
   handleSubmit(description) {
