@@ -2,22 +2,10 @@ const serverless = require('serverless-http');
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
-const aws = require('aws-sdk');
 const uuid = require('uuid/v1');
+const dynamoDb = require('./utils/dbConnection')();
 
 const todosTable = process.env.TODOS_TABLE;
-
-const IS_OFFLINE = process.env.IS_OFFLINE;
-let dynamoDb;
-if (IS_OFFLINE === 'true') {
-  dynamoDb = new aws.DynamoDB.DocumentClient({
-    region: 'localhost',
-    endpoint: 'http://localhost:8000'
-  });
-  console.log(dynamoDb);
-} else {
-  dynamoDb = new aws.DynamoDB.DocumentClient();
-}
 
 app.use(bodyParser.json({ strict: false }));
 
