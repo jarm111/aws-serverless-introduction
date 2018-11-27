@@ -29,6 +29,7 @@ GET {{baseUrl}}/todos/{{todoId}}
 
 # @name updateTodo
 PUT {{baseUrl}}/todos/{{todoId}}
+Content-Type: application/json
 
 {
   "isDone": true
