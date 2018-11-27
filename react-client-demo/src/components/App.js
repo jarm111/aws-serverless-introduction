@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import TodosTable from './TodosTable';
 import AddTodoForm from './AddTodoForm';
-import { fetchTodos, postNewTodo, deleteTodo } from '../utils/apiCalls';
+import {
+  fetchTodos,
+  postNewTodo,
+  deleteTodo,
+  updateTodo
+} from '../utils/apiCalls';
 
 class App extends Component {
   constructor(props) {
@@ -29,16 +34,12 @@ class App extends Component {
     postNewTodo(description).then(() => this.setTodosState());
   }
 
-  handleDeleteClick(todoId) {
-    deleteTodo(todoId).then(() => this.setTodosState());
+  handleDeleteClick(item) {
+    deleteTodo(item.todoId).then(() => this.setTodosState());
   }
 
-  handleToggleStatusClick(item, index) {
-    this.setState(state => {
-      let newTodos = [...state.todos];
-      newTodos[index].isDone = !item.isDone;
-      return { todos: newTodos };
-    });
+  handleToggleStatusClick(item) {
+    updateTodo(item.todoId, !item.isDone).then(() => this.setTodosState());
   }
 
   render() {

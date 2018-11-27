@@ -27,3 +27,14 @@ export const deleteTodo = todoId => {
 
   return fetch(baseUrl + '/todos/' + todoId, init);
 };
+
+export const updateTodo = (todoId, isDone) => {
+  const init = {
+    method: 'PUT',
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    }),
+    body: JSON.stringify({ isDone })
+  };
+  return fetch(baseUrl + '/todos/' + todoId, init);
+};

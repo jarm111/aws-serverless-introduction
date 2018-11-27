@@ -9,12 +9,12 @@ const TodosTable = props => {
       <td>{item.description}</td>
       <td>{item.isDone ? '\u2713' : '–'}</td>
       <td>
-        <Button onClick={() => props.onToggleStatusClick(item, index)}>
+        <Button onClick={() => props.onToggleStatusClick(item)}>
           Toggle Status
         </Button>
       </td>
       <td>
-        <Button onClick={() => props.onDeleteClick(item.todoId)}>Delete</Button>
+        <Button onClick={() => props.onDeleteClick(item)}>Delete</Button>
       </td>
     </tr>
   ));
