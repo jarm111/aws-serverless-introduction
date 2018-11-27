@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "react-app",
+    "eslint:recommended",
+    "prettier",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "no-console": 0,
+    "no-unused-vars": ["error", { "args": "after-used" }]
+  }
+}
