@@ -22,7 +22,7 @@ if (IS_OFFLINE === 'true') {
 app.use(bodyParser.json({ strict: false }));
 
 app.get('/', function(req, res) {
-  res.send('Hello, this is Serverless REST-API demo!');
+  return res.send('Hello, this is Serverless REST-API demo!');
 });
 
 app.get('/todos', function(req, res) {
@@ -33,22 +33,27 @@ app.get('/todos', function(req, res) {
   dynamoDb.scan(params, (error, result) => {
     if (error) {
       console.log(error);
-      res.status(400).json({ error: 'Could not get todo' });
+      return res
+        .status(400)
+        .send(
+          'Unable to get items. Error JSON:' + JSON.stringify(error, null, 2)
+        );
     }
-    if (result.Items) {
-      const todos = result.Items.map(({ todoId, description, isDone }) => ({
-        todoId,
-        description,
-        isDone
-      }));
-      res.json(todos);
-    } else {
-      res.status(404).json({ error: 'Todos not found' });
+
+    if (!result.Items) {
+      return res.status(404).json({ error: 'Todos not found' });
     }
+
+    const todos = result.Items.map(({ todoId, description, isDone }) => ({
+      todoId,
+      description,
+      isDone
+    }));
+
+    return res.status(200).json(todos);
   });
 });
 
-// Get Todo endpoint
 app.get('/todos/:todoId', function(req, res) {
   const params = {
     TableName: todosTable,
@@ -60,22 +65,26 @@ app.get('/todos/:todoId', function(req, res) {
   dynamoDb.get(params, (error, result) => {
     if (error) {
       console.log(error);
-      res.status(400).json({ error: 'Could not get todo' });
+      return res
+        .status(400)
+        .send(
+          'Unable to get item. Error JSON:' + JSON.stringify(error, null, 2)
+        );
     }
-    if (result.Item) {
-      const { todoId, description, isDone } = result.Item;
-      res.json({ todoId, description, isDone });
-    } else {
-      res.status(404).json({ error: 'Todo not found' });
+
+    if (!result.Item) {
+      return res.status(404).json({ error: 'Todo not found' });
     }
+
+    const { todoId, description, isDone } = result.Item;
+    return res.json({ todoId, description, isDone });
   });
 });
 
-// Create Todo endpoint
 app.post('/todos', function(req, res) {
   const { description } = req.body;
   if (typeof description !== 'string') {
-    res.status(400).json({ error: '"description" must be a string' });
+    return res.status(400).json({ error: '"description" must be a string' });
   }
 
   const todoId = uuid();
@@ -93,16 +102,21 @@ app.post('/todos', function(req, res) {
   dynamoDb.put(params, error => {
     if (error) {
       console.log(error);
-      res.status(400).json({ error: 'Could not create todo' });
+      return res
+        .status(400)
+        .send(
+          'Unable to create todo. Error JSON:' + JSON.stringify(error, null, 2)
+        );
     }
-    res.json({ todoId, description, isDone });
+
+    return res.status(200).json({ todoId, description, isDone });
   });
 });
 
 app.put('/todos/:todoId', function(req, res) {
   const { isDone } = req.body;
   if (typeof isDone !== 'boolean') {
-    res.status(400).json({ error: '"isDone" must be a boolean' });
+    return res.status(400).json({ error: '"isDone" must be a boolean' });
   }
 
   const params = {
@@ -121,16 +135,16 @@ app.put('/todos/:todoId', function(req, res) {
   dynamoDb.update(params, (error, data) => {
     if (error) {
       console.log(error);
-      res
+      return res
         .status(400)
         .send(
           'Unable to update item. Error JSON:' + JSON.stringify(error, null, 2)
         );
-    } else {
-      res
-        .status(200)
-        .send('UpdateItem succeeded:' + JSON.stringify(data, null, 2));
     }
+
+    return res
+      .status(200)
+      .send('UpdateItem succeeded:' + JSON.stringify(data, null, 2));
   });
 });
 
@@ -146,16 +160,16 @@ app.delete('/todos/:todoId', function(req, res) {
   dynamoDb.delete(params, (error, data) => {
     if (error) {
       console.log(error);
-      res
+      return res
         .status(400)
         .send(
           'Unable to delete item. Error JSON:' + JSON.stringify(error, null, 2)
         );
-    } else {
-      res
-        .status(200)
-        .send('DeleteItem succeeded:' + JSON.stringify(data, null, 2));
     }
+
+    return res
+      .status(200)
+      .send('DeleteItem succeeded:' + JSON.stringify(data, null, 2));
   });
 });
 
