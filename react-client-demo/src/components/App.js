@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import TodosTable from './TodosTable';
 import AddTodoForm from './AddTodoForm';
-import { getTodos } from '../utils/apiCalls';
+import { fetchTodos, postNewTodo } from '../utils/apiCalls';
 
 class App extends Component {
   constructor(props) {
@@ -16,15 +16,17 @@ class App extends Component {
   }
 
   componentDidMount() {
-    getTodos()
+    this.setTodosState();
+  }
+
+  setTodosState() {
+    fetchTodos()
       .then(res => res.json())
       .then(res => this.setState(() => ({ todos: res })));
   }
 
   handleSubmit(newEntry) {
-    this.setState(state => ({
-      todos: [...state.todos, newEntry]
-    }));
+    postNewTodo(newEntry.description).then(() => this.setTodosState());
   }
 
   handleDeleteClick(index) {
