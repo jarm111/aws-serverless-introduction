@@ -14,7 +14,7 @@ const TodosTable = props => {
         </Button>
       </td>
       <td>
-        <Button onClick={() => props.onDeleteClick(index)}>Delete</Button>
+        <Button onClick={() => props.onDeleteClick(item.todoId)}>Delete</Button>
       </td>
     </tr>
   ));

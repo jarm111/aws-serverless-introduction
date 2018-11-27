@@ -19,3 +19,11 @@ export const postNewTodo = description => {
 
   return fetch(baseUrl + '/todos', init);
 };
+
+export const deleteTodo = todoId => {
+  const init = {
+    method: 'DELETE'
+  };
+
+  return fetch(baseUrl + '/todos/' + todoId, init);
+};
