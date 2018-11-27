@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Table } from 'reactstrap';
+import { Button, Table } from 'reactstrap';
 
 const TodosTable = props => {
   const tableRows = props.todos.map((item, index) => (
@@ -8,6 +8,14 @@ const TodosTable = props => {
       <th scope="row">{index + 1}</th>
       <td>{item.description}</td>
       <td>{item.isDone ? '\u2713' : '–'}</td>
+      <td>
+        <Button onClick={() => props.onToggleStatusClick(item, index)}>
+          Toggle Status
+        </Button>
+      </td>
+      <td>
+        <Button onClick={() => props.onDeleteClick(index)}>Delete</Button>
+      </td>
     </tr>
   ));
 
@@ -18,6 +26,8 @@ const TodosTable = props => {
           <th>#</th>
           <th>Description</th>
           <th>Status</th>
+          <th />
+          <th />
         </tr>
       </thead>
       <tbody>{tableRows}</tbody>
@@ -26,6 +36,8 @@ const TodosTable = props => {
 };
 
 TodosTable.propTypes = {
+  onDeleteClick: PropTypes.func,
+  onToggleStatusClick: PropTypes.func,
   todos: PropTypes.array
 };
 
