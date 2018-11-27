@@ -1,6 +1,6 @@
 {
   "short_name": "Todos React Demo",
-  "name": "React demo client for Serverless Rest API demo",
+  "name": "Todos react demo client for Serverless Rest API demo",
   "icons": [
     {
       "src": "favicon.ico",
