@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   handleSubmit(newEntry) {
-    postNewTodo(newEntry.description).then(() => this.setTodosState());
+    postNewTodo(newEntry).then(() => this.setTodosState());
   }
 
   handleDeleteClick(index) {
