@@ -14,6 +14,10 @@ class AddTodoForm extends Component {
     this.setState({ value: event.target.value });
   }
 
+  clearInput() {
+    this.setState({ value: '' });
+  }
+
   render() {
     return (
       <Form inline>
@@ -29,7 +33,12 @@ class AddTodoForm extends Component {
             value={this.state.value}
             className="w-50"
           />
-          <Button onClick={() => this.props.onSubmit(this.state.value)}>
+          <Button
+            onClick={() => {
+              this.props.onSubmit(this.state.value);
+              this.clearInput();
+            }}
+          >
             Submit
           </Button>
         </FormGroup>
