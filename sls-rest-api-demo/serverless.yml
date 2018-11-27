@@ -5,6 +5,8 @@ custom:
   dynamodb:
     start:
       migrate: true
+  serverless-offline:
+    port: 4000
 
 plugins:
   - serverless-dynamodb-local
