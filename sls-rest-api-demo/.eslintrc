@@ -2,9 +2,10 @@
   "env": {
     "node": true
   },
-  "extends": ["prettier"],
+  "extends": ["eslint:recommended", "prettier"],
   "parserOptions": { "ecmaVersion": 6 },
   "rules": {
-    "curly": ["error", "multi-line"]
+    "curly": ["error", "multi-line"],
+    "no-console": 0
   }
 }
