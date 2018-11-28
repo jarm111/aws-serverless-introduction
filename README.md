@@ -18,6 +18,7 @@ Steps to get it running:
 - For local development you need to install DynamoDB Local with `sls dynamodb install`.
 - To start the service locally: `sls offline start`.
 - If you want to deploy it to AWS you can do it with `sls deploy`.
+- To remove the AWS deployment run `serverless remove`.
 
 ### React Client Demo
 
