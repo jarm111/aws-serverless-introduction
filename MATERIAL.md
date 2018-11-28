@@ -132,4 +132,9 @@ Ota kuvakaappaus lopputuloksesta, kun testaat sovellusta.
 [Serverless Express REST-API tutorial](https://serverless.com/blog/serverless-express-rest-api/)\
 Ota kuvakaappaus testatusta GET-reitistä, kun olet ensin luonut POST-reitillä käyttäjän.
 
-3. Lopuksi toteuta demo-sovellukseen TODO-listan merkinnän päivittäminen tehdyksi ja sen poistaminen.
+3. Lopuksi kokeile toteuttaa jokin Lambda-funktiota hyödyntävä toiminto. Voit kokeilla laajentaa demo-sovellusta jollain tavalla tai hyödyntää Serverless Frameworking sivulta löytyviä esimerkkejä tai AWS Lambdan konsolista löytyviä blueprintejä. 
+
+Jotain ideoita:
+- autentikaation toteuttaminen demo sovellukseen
+- automaattinen kuvan muokkaaminen, kun sen lataa S3-bucketiin
+- jonkin Node-sovelluksen muuttaminen serverless-muotoon
