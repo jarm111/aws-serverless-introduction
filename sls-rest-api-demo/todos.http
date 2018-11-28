@@ -1,4 +1,5 @@
 # REST Client - Todo routes
+# set baseUrl in rest-client.environmentVariables
 
 # @name getRoot
 GET {{baseUrl}}
