@@ -4,7 +4,7 @@ Introduction material and simple demo app on serverless development with AWS for
 
 ## Getting Started
 
-You can find the introduction material and assigments [here](https://github.com/jarm111/aws-serverless-introduction/blob/master/MATERIAL.md) (in finnish).
+You can find the introduction material and assigments [here](https://github.com/jarm111/aws-serverless-introduction/blob/master/MATERIAL.md) (in Finnish).
 
 ### Serverless REST API Demo
 
